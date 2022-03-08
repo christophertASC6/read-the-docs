@@ -7,7 +7,7 @@ using Jupyter notebooks we also recommend. Eventually we will support
 schedulable Jupyter notebooks via our Slurm scheduler.
 
 *Note*: If you are running a long-running job like ML training we
-recommend that you don’t use port forwarding as closing your local
+recommend that you don't use port forwarding as closing your local
 machine/web browser will likely stop or pause any actions within the
 Jupyter notebook. You alternatively can use
 `VNC <https://github.gatech.edu/crnch-rg/rogues-docs/wiki/%5BMisc%5D-Using-GUI-applications-with-VNC>`__
@@ -17,22 +17,22 @@ to create a remote server and you can then run your notebook within a
 browser in that remote terminal session.
 
 Using jump hosts to access Jupyter notebooks
---------------------------------------------
+============================================
 
-Note that these techniques will let you use “port forwarding” to forward
+Note that these techniques will let you use "port forwarding" to forward
 the Jupyter notebook to your local machine.
 
 First connect from your local terminal to this server using SSH
 forwarding for a specific port:
 
-::
+.. code:: 
 
    ssh -L 59801:localhost:59801 -C -J rg-login.crnch.gatech.edu rg-quantum-dev.crnch.gatech.edu
 
 Then start your JupyterLab instance on the node you want to use a
 notebook with:
 
-::
+.. code:: 
 
    rg-quantum-dev:$ jupyter-lab --no-browser --port 59801 
    [W 21:20:20.924 LabApp] JupyterLab server extension not enabled, manually loading...
@@ -54,18 +54,18 @@ notebook with:
 Connect locally to the notebook using your web browser with the token
 provided.
 
-::
+.. code:: 
 
    http://localhost:59801/?token=f59c32ebccccbc3f3036bfd32b8f62a47b48442085f3f4a2
 
 Alternative method: use the provided setup script
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------
 
 This method provides a randomized port number for you to use and is
 preferred. It still requires creating a tunnel to your home machine but
 shares the string to do so with you:
 
-::
+.. code:: 
 
    ./tools/misc/scripts/start_jupyter_notebook.sh
    ==========================================================
@@ -91,7 +91,7 @@ shares the string to do so with you:
         or http://127.0.0.1:54050/?token=ccc0907e7f4f22ed7c25dbcbc63ce6512e34e3fbbca5c077
 
 Example images of Jupyter notebook usage
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------------
 
 Figure 1: Example of using the JupyterLab token to connect locally
 
